@@ -1,0 +1,36 @@
+.employeeTable{
+width: 100%;
+    max-height: 50vh;
+    overflow-y: scroll;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+}
+.employeeRow{
+width: 100%;
+    display: flex;
+
+}
+
+.employeeNameContainer , .employeePhoneContainer ,.employeeSalaryRangeContainer ,.employeeEmailContainer ,.employeeCommissionContainer,.employeeBonusAmountContainer,.employeePerformenceRatingContainer,.employeeExperienceContainer{
+width: 12vw;min-width: 12vw;max-width: 12vw;
+    text-align: center;
+}
+.employeeEmailContainer{
+    font-size: 0.8rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display:inline-block;
+    text-align: start;
+
+
+}
+.employeeCommissionContainer{
+    width: 5vw;min-width: 5vw;max-width: 5vw;
+
+}
+.employeePerformenceRatingContainer{
+    width: 5vw;min-width: 5vw;max-width: 5vw;
+
+}

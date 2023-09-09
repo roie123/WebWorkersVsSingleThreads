@@ -1,0 +1,37 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  padding: 6rem;
+  min-height: 100vh;
+}
+.mainButtons{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.statisticsCont{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+.singleStatistic{
+text-align: center;
+}
+.statisticName{
+
+}
+.statisticValueCont{
+
+}
+.statisticValue{
+
+}
+.employeeTableContainer{
+  width: 100%;
+
+}
