@@ -1,4 +1,5 @@
-import styles from "@/app/page.module.css";
+'use client'
+import styles from "../page.module.css";
 import EmployeeTable from "@/app/components/EmployeeTable";
 import {useEffect, useState} from "react";
 import {getAvgBonus, getAvgRating, getAvgSalary} from "@/app/Services/CalculationsService";
@@ -11,7 +12,7 @@ interface UsingWebWorkersProps{
      * Author - Roie Ivri
      * Created Date&Time - 09/09/2023 | 18:34
      */
-export default function UsingWebWorkers(props:UsingWebWorkersProps){
+export default function Page(props:UsingWebWorkersProps){
 
         const [usingMainThread,setusingMainThread] =useState<boolean>(false);
         const [avgBonus,setavgBonus] =useState<number>(0 );
