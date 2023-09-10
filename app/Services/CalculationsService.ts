@@ -5,7 +5,9 @@ import {Employee} from "@/app/Data";
 export function getAvgSalary(employees: Employee[]): number {
     let salarySum: number = 0;
     employees.map(employee => salarySum += employee.salary);
-
+    for (let i = 0; i < 1_000_00; i++) {
+        console.log(i);
+    }
 
     return (salarySum / employees.length);
 }

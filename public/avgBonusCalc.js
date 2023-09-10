@@ -2,7 +2,7 @@ self.addEventListener('message', (e) => {
     const data = e.data;
     let bonusSum=0
 
-    for (let i = 0; i < 100000; i++) {
+    for (let i = 0; i < 1_000_00; i++) {
         console.log(i);
     }
     

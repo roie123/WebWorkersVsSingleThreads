@@ -1,10 +1,8 @@
 self.addEventListener('message', (e) => {
     let salesSum=0
 
-    for (let i = 0; i < 100000; i++) {
-        for (let j = 0; j < 10000; j++) {
-
-        }
+    for (let i = 0; i < 1_000_00; i++) {
+        console.log(i);
     }
     
     

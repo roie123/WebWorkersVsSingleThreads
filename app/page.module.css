@@ -1,3 +1,9 @@
+.pageWrapper{
+display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
 .main {
   display: flex;
   flex-direction: column;
@@ -6,12 +12,29 @@
   padding: 6rem;
   min-height: 100vh;
 }
+.mainTitle{
+  width: 100%;
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+
+}
+
 .mainButtons{
   width: 100%;
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
+.mainButtons button{
+  height: 10vh;
+  border-radius: 1vh;
+  text-align: center;
+  width: 30%;
+}
+
 .statisticsCont{
   width: 100%;
   display: flex;
@@ -34,4 +57,10 @@ text-align: center;
 .employeeTableContainer{
   width: 100%;
 
+}
+.timeCont{
+
+}
+.timeCont h1{
+  color:white;
 }

@@ -2,8 +2,9 @@
 import styles from "../page.module.css";
 import EmployeeTable from "@/app/components/EmployeeTable";
 import {useEffect, useState} from "react";
-import {getAvgBonus, getAvgRating, getAvgSalary} from "@/app/Services/CalculationsService";
+import {getAvgBonus, getAvgRating, getAvgSalary, getAvgSales} from "@/app/Services/CalculationsService";
 import {employeesData} from "@/app/Data";
+import Link from "next/link";
 
 interface UsingWebWorkersProps{
 
@@ -13,22 +14,33 @@ interface UsingWebWorkersProps{
      * Created Date&Time - 09/09/2023 | 18:34
      */
 export default function Page(props:UsingWebWorkersProps){
+        const currentTime = Date.now();
 
         const [usingMainThread,setusingMainThread] =useState<boolean>(true);
         const [avgBonus,setavgBonus] =useState<number>(0 );
         const [avgSales,setavgSales] =useState<number>(0);
         const [avgSalary,setavgSalary] =useState<number>(0);
         const [avgRating,setavgRating] =useState<number>(0);
+        const [timeItTookForCalc,settimeItTookForCalc] =useState<string>(' ');
+
+
+        useEffect(()=>{
+                if (avgBonus!==0 && avgSalary!==0 && avgSales!==0 && avgRating!==0){
+                    settimeItTookForCalc((currentTime-Date.now()).toString())
+                }
+            },
+            [avgBonus,avgSalary,avgSales,avgRating])
+
 
 
 
         useEffect(()=>
             {
                 if (usingMainThread){
-                    setavgRating(getAvgBonus(employeesData));
                     setavgBonus(getAvgBonus(employeesData));
                     setavgSalary(getAvgSalary(employeesData));
                     setavgRating(getAvgRating(employeesData));
+                    setavgSales(getAvgSales(employeesData))
 
                 }else {
 
@@ -123,111 +135,134 @@ export default function Page(props:UsingWebWorkersProps){
         }
 
 
+
+
+        function checkMainThread(){
+                alert('Main Thread is free to use')
+        }
+
+
+
 return(
 <>
-    <div className={styles.statisticsCont}>
+    <div className={styles.pageWrapper}>
+
+        <div className={styles.statisticsCont}>
 
 
-        <div className={styles.singleStatistic}>
-            <p className={styles.statisticName} >AVG Salary</p>
+            <div className={styles.singleStatistic}>
+                <p className={styles.statisticName} >AVG Salary</p>
 
 
 
-            <div className={styles.statisticValueCont} >
-                <p  className={styles.statisticValue}>
-                    {avgSalary.toString()}
+                <div className={styles.statisticValueCont} >
+                    <p  className={styles.statisticValue}>
+                        {avgSalary.toString()}
 
-                </p>
+                    </p>
+
+                </div>
+
+
 
             </div>
 
+
+
+            <div className={styles.singleStatistic}>
+                <p className={styles.statisticName} >AVG Sales</p>
+
+
+
+                <div className={styles.statisticValueCont} >
+                    <p  className={styles.statisticValue}>
+
+                        {avgSales}
+
+                    </p>
+
+                </div>
+
+
+
+            </div>
+
+
+
+
+
+
+
+            <div className={styles.singleStatistic}>
+                <p className={styles.statisticName} >AVG Rating</p>
+
+
+
+                <div className={styles.statisticValueCont} >
+                    <p  className={styles.statisticValue}>
+                        {avgRating}
+
+
+
+                    </p>
+
+                </div>
+
+
+
+            </div>
+
+
+
+
+            <div className={styles.singleStatistic}>
+                <p className={styles.statisticName} >AVG Bonus</p>
+
+
+
+                <div className={styles.statisticValueCont} >
+                    <p  className={styles.statisticValue}>
+                        {avgBonus}
+
+
+                    </p>
+
+                </div>
+
+
+
+            </div>
 
 
         </div>
 
 
 
-        <div className={styles.singleStatistic}>
-            <p className={styles.statisticName} >AVG Sales</p>
 
 
 
-            <div className={styles.statisticValueCont} >
-                <p  className={styles.statisticValue}>
-
-                    {avgSales}
-
-                </p>
-
-            </div>
 
 
 
+        <div className={styles.employeeTableContainer} >
+
+            <EmployeeTable/>
         </div>
 
+            <button>
+                <Link href='/'>
+                    Go Back To Selection
 
-
-
-
-
-
-        <div className={styles.singleStatistic}>
-            <p className={styles.statisticName} >AVG Rating</p>
-
-
-
-            <div className={styles.statisticValueCont} >
-                <p  className={styles.statisticValue}>
-                    {avgRating}
-
-
-
-                </p>
-
-            </div>
-
-
-
-        </div>
-
-
-
-
-        <div className={styles.singleStatistic}>
-            <p className={styles.statisticName} >AVG Bonus</p>
-
-
-
-            <div className={styles.statisticValueCont} >
-                <p  className={styles.statisticValue}>
-                    {avgBonus}
-
-
-                </p>
-
-            </div>
-
-
-
-        </div>
-
+                </Link>
+            </button>
 
     </div>
 
+    <div className={styles.timeCont}>
+        <button onClick={()=> checkMainThread()} >Click me to check the main thread !</button>
+        <h1>{timeItTookForCalc}</h1>
 
-
-
-
-
-
-
-
-
-    <div className={styles.employeeTableContainer} >
-
-        <EmployeeTable/>
     </div>
-
 </>
 )
 }

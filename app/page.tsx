@@ -20,6 +20,9 @@ export default function Home() {
 
   return (
     <main className={styles.main}>
+        <div className={styles.mainTitle}>
+            <h1>Web Workers Vs The Main Thread Example</h1>
+        </div>
       <div className={styles.mainButtons} >
         <button>
           <Link href="/using-main-thread" >

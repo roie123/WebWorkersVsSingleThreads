@@ -13,12 +13,21 @@ interface UsingWebWorkersProps{
      * Created Date&Time - 09/09/2023 | 18:34
      */
 export default function Page(props:UsingWebWorkersProps){
-
+        const currentTime = Date.now();
         const [usingMainThread,setusingMainThread] =useState<boolean>(false);
         const [avgBonus,setavgBonus] =useState<number>(0 );
         const [avgSales,setavgSales] =useState<number>(0);
         const [avgSalary,setavgSalary] =useState<number>(0);
         const [avgRating,setavgRating] =useState<number>(0);
+        const [timeItTookForCalc,settimeItTookForCalc] =useState<string>(' ');
+
+
+        useEffect(()=>{
+            if (avgBonus!==0 && avgSalary!==0 && avgSales!==0 && avgRating!==0){
+                settimeItTookForCalc((currentTime-Date.now()).toString())
+            }
+            },
+            [avgBonus,avgSalary,avgSales,avgRating])
 
 
 
@@ -226,6 +235,12 @@ return(
     <div className={styles.employeeTableContainer} >
 
         <EmployeeTable/>
+    </div>
+    <div className={styles.timeCont}>
+        <button onClick={()=> alert('Main Thread is free')} >Click me to check the main thread !</button>
+
+        <h1>{timeItTookForCalc}</h1>
+
     </div>
 
 </>
