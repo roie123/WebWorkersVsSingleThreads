@@ -239,7 +239,7 @@ return(
     <div className={styles.timeCont}>
         <button onClick={()=> alert('Main Thread is free')} >Click me to check the main thread !</button>
 
-        <h1>{timeItTookForCalc}</h1>
+        <h1>Time to finish calculating :: {timeItTookForCalc}</h1>
 
     </div>
 

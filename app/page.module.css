@@ -3,25 +3,50 @@ display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  width: 100%;
 }
 .main {
   display: flex;
   flex-direction: column;
   justify-content: start;
   align-items: center;
-  padding: 6rem;
   min-height: 100vh;
 }
-.mainTitle{
+.main img{
   width: 100%;
+  height: 100%;
+  filter: blur(10px);
+  position: absolute;
+  z-index: -100;
+  animation-name: home;
+  animation-iteration-count: infinite;
+  animation-duration: 10s;
+  animation-timing-function:ease-in-out;
+}
+@keyframes home {
+  0%{transform: translateX(0)}
+  50%{transform: translateX(-30px)}
+  100%{transform: translateX(0)}
+}
+.mainTitle{
+  width: 90%;
   display: flex;
-
-  justify-content: center;
-  align-items: center;
-
+  gap: 3vh;
+  justify-content: space-around;
+  align-items: end;
+margin-bottom: 10vh;
+  background-color: rgba(0, 0, 0, 0.75);
+  padding: 2vh;
+  border-radius: 1vh;
 
 }
-
+.mainTitle p{
+  text-align: center;
+}
+.mainTitle span{
+  color: green;
+  font-weight: bold;
+}
 .mainButtons{
   width: 100%;
   display: flex;
@@ -33,8 +58,13 @@ display: flex;
   border-radius: 1vh;
   text-align: center;
   width: 30%;
+  outline: none;
+  border: none;
 }
-
+.mainButtons button:hover {
+  transform: translateY(-3px);
+  transition: 0.3s;
+}
 .statisticsCont{
   width: 100%;
   display: flex;
@@ -51,15 +81,28 @@ text-align: center;
 .statisticValueCont{
 
 }
+.statisticValueCont p{
+  color: green;
+}
 .statisticValue{
 
 }
 .employeeTableContainer{
-  width: 100%;
+  width: fit-content;
+  margin: auto;
 
 }
 .timeCont{
-
+width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.timeCont button{
+  margin-top: 5vh;
+  padding: 1vh;
+  height: 10vh;
 }
 .timeCont h1{
   color:white;

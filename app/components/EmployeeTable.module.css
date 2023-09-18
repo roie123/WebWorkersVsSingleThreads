@@ -6,10 +6,14 @@ width: 100%;
     align-items: center;
     flex-direction: column;
 }
+
 .employeeRow{
 width: 100%;
     display: flex;
 
+}
+.employeeRow:nth-child(3){
+    background-color: green;
 }
 
 .employeeNameContainer , .employeePhoneContainer ,.employeeSalaryRangeContainer ,.employeeEmailContainer ,.employeeCommissionContainer,.employeeBonusAmountContainer,.employeePerformenceRatingContainer,.employeeExperienceContainer{
