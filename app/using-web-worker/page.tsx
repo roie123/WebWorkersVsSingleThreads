@@ -50,10 +50,9 @@ export default function Page(props:UsingWebWorkersProps){
                         setavgSalary(result);
                     });
 
-                    // Send data to the web worker
-                    worker.postMessage(employeesData); // Example data to send to the worker
 
-                    // Clean up the worker when the component unmounts
+                    worker.postMessage(employeesData);
+
 
 
                     const avgBonusCalc = new Worker('avgBonusCalc.js', { type: 'module' });
@@ -63,8 +62,8 @@ export default function Page(props:UsingWebWorkersProps){
 
                     });
 
-                    // Send data to the web worker
-                    avgBonusCalc.postMessage(employeesData); // Example data to send to the worker
+
+                    avgBonusCalc.postMessage(employeesData);
 
 
 
@@ -77,8 +76,8 @@ export default function Page(props:UsingWebWorkersProps){
 
                     });
 
-                    // Send data to the web worker
-                    avgRating.postMessage(employeesData); // Example data to send to the worker
+
+                    avgRating.postMessage(employeesData);
 
 
 
@@ -90,13 +89,12 @@ export default function Page(props:UsingWebWorkersProps){
 
                     });
 
-                    // Send data to the web worker
-                    avgSale.postMessage(employeesData); // Example data to send to the worker
+
+                    avgSale.postMessage(employeesData);
 
 
 
 
-                    // Clean up the worker when the component unmounts
                     return () => {
                         worker.terminate();
                         avgRating.terminate()
